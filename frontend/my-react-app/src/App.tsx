@@ -2,6 +2,7 @@ import './index.css'
 // import Navbar from './components/Navbar';
 import { useEffect, useState } from 'react';
 import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
+import { Routes, Route } from 'react-router-dom';
 import './builder-registry';
 
 
@@ -44,9 +45,9 @@ function App() {
   }
   
   return (
-    <>
-      {content && <BuilderComponent model="page" content={content} />}
-    </>
+    <Routes>
+      <Route path="/*" element={content && <BuilderComponent model="page" content={content} />}/>
+    </Routes>
   );
 }
 
