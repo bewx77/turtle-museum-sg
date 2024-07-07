@@ -5,6 +5,8 @@ import Button from "./components/Button";
 import Footer from "./components/Footer";
 import Card from "./components/Card";
 import Notice from "./components/Notice";
+import HeaderBanner from "./components/HeaderBanner";
+import TurtleCard from "./components/TurtleCard";
 
 Builder.registerComponent(Counter, {
   name: "Counter",
@@ -69,4 +71,41 @@ Builder.registerComponent(Notice, {
       defaultValue: "Content",
     },
   ],
+})
+
+Builder.registerComponent(HeaderBanner, {
+  name: "Header Banner",
+  inputs: [
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "Title",
+    },
+    {
+      name: "backgroundImage",
+      type: "file",
+      allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
+    }
+  ]
+})
+
+Builder.registerComponent(TurtleCard, {
+  name: "Turtle Card",
+  inputs: [
+    {
+      name: "title",
+      type: "text",
+      defaultValue: "Title",
+    },
+    {
+      name: "subtitle",
+      type: "text",
+      defaultValue: "Subtitle",
+    },
+    {
+      name: "image",
+      type: "file",
+      allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
+    }
+  ]
 })
