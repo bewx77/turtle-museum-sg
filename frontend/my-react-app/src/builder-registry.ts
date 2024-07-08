@@ -7,6 +7,7 @@ import Card from "./components/Card";
 import Notice from "./components/Notice";
 import HeaderBanner from "./components/HeaderBanner";
 import TurtleCard from "./components/TurtleCard";
+import TurtleInfo from "./components/TurtleInfo";
 
 Builder.registerComponent(Counter, {
   name: "Counter",
@@ -19,59 +20,46 @@ Builder.registerComponent(Counter, {
 });
 
 Builder.registerComponent(Navbar, {
-  name: 'Navbar',
+  name: "Navbar",
 });
 
 Builder.registerComponent(Button, {
-  name: 'Button',
+  name: "Button",
   inputs: [
-    { name: "text",
-      type: "text",
-      defaultValue: "Button",
-    },
-    { name: "type",
+    { name: "text", type: "text", defaultValue: "Button" },
+    {
+      name: "type",
       type: "text",
       enum: ["primary", "secondary"],
       defaultValue: "primary",
-    }
+    },
   ],
 });
 
 Builder.registerComponent(Footer, {
-  name:"Footer",
-})
+  name: "Footer",
+});
 
 Builder.registerComponent(Card, {
-  name:"Card",
+  name: "Card",
   inputs: [
-    { name: "header",
-      type: "text",
-      defaultValue: "Header",
-    },
-    { name: "description",
-      type: "text",
-      defaultValue: "Content Here",
-    },
+    { name: "header", type: "text", defaultValue: "Header" },
+    { name: "description", type: "text", defaultValue: "Content Here" },
   ],
-})
+});
 
 Builder.registerComponent(Notice, {
-  name:"Notice",
+  name: "Notice",
   inputs: [
-    { name: "title",
-      type: "text",
-      defaultValue: "Title",
-    },
-    { name: "date",
+    { name: "title", type: "text", defaultValue: "Title" },
+    {
+      name: "date",
       type: "date",
       // defaultValue: "Today",
     },
-    { name: "content",
-      type: "text",
-      defaultValue: "Content",
-    },
+    { name: "content", type: "text", defaultValue: "Content" },
   ],
-})
+});
 
 Builder.registerComponent(HeaderBanner, {
   name: "Header Banner",
@@ -84,10 +72,10 @@ Builder.registerComponent(HeaderBanner, {
     {
       name: "backgroundImage",
       type: "file",
-      allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
-    }
-  ]
-})
+      allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+    },
+  ],
+});
 
 Builder.registerComponent(TurtleCard, {
   name: "Turtle Card",
@@ -105,7 +93,11 @@ Builder.registerComponent(TurtleCard, {
     {
       name: "image",
       type: "file",
-      allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
-    }
-  ]
-})
+      allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+    },
+  ],
+});
+
+Builder.registerComponent(TurtleInfo, {
+  name: "Turtle Info",
+});

@@ -1,0 +1,3 @@
+curl --location 'https://cdn.builder.io/api/v2/content/turtle?apiKey=81930ef26dff4457b3b169a34fed7ac9&query.data.turtleName=Asian%20Soft%20Shell%20Turtle'
+
+curl --location 'https://cdn.builder.io/api/v2/content/turtle?apiKey=81930ef26dff4457b3b169a34fed7ac9&query.data.turtleName=%E2%80%8B%E2%80%8BAsian%20Soft%20Shell%20Turtle'
