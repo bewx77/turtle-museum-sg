@@ -20,6 +20,12 @@ Builder.registerComponent(Counter, {
 
 Builder.registerComponent(Navbar, {
   name: 'Navbar',
+  inputs: [
+  { name: "onPage",
+    type: "text",
+    enum: ["home", "turtles"],
+    defaultValue: "home",
+  }],
 });
 
 Builder.registerComponent(Button, {
@@ -64,7 +70,7 @@ Builder.registerComponent(Notice, {
     },
     { name: "date",
       type: "date",
-      // defaultValue: "Today",
+      defaultValue: new Date().toString(),
     },
     { name: "content",
       type: "text",

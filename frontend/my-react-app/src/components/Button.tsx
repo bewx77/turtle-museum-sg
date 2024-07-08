@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
-    const baseClasses = "font-light py-2 px-4 rounded-full";
+    const baseClasses = "font-light py-2 px-4 rounded-full text-xs w-28 lg:w-40";
     let typeClasses;
     switch (props.type) {
         case "primary":

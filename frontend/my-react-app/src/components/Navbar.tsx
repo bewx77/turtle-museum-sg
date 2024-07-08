@@ -1,7 +1,15 @@
 import React from "react";
 import turtleLogo from "../assets/turtle-museum-sg-logo.png";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onPage: "home" | "turtles";
+}
+
+const isOnPage = (page : string, onPage :string) : string => {
+  return onPage === page ? "text-orange-400" : "text-black hover:text-gray-200";
+}
+const Navbar: React.FC<NavbarProps> = (props) => {
+
     return (
         <nav className="bg-white p-4">
         <div className="container mx-auto flex justify-between items-center">
@@ -11,10 +19,10 @@ const Navbar: React.FC = () => {
             </a>
           </div>
           <div className="flex space-x-4">
-            <a href="/" className="text-orange-400">
+            <a href="/" className={isOnPage("home", props.onPage)}>
               Home
             </a>
-            <a href="/turtles" className="text-black hover:text-gray-200">
+            <a href="/turtles" className={isOnPage("turtles", props.onPage)}>
               Turtles
             </a>
           </div>
