@@ -17,20 +17,20 @@ const Footer: React.FC = () => {
                 <div className="flex flex-row justify-center items-center mb-4 lg:mb-0">
                     <span className="mr-8">Follow Us</span>
                     <a href="https://www.facebook.com/turtlemuseumsg/">
-                        <img src={fbLogo} className="h-6 lg:h-8 mr-6"/>
+                        <img src={fbLogo} className="h-6 lg:h-8 mr-4"/>
                     </a>
                     <a href="https://www.instagram.com/turtlemuseumsg/">
-                        <img src={igLogo} className="h-6 lg:h-8 mr-6"/>
+                        <img src={igLogo} className="h-6 lg:h-8 mr-4"/>
                     </a>
                     <a href="https://www.tiktok.com/@turtlemuseumsg">
-                        <img src={ttLogo} className="h-6 lg:h-8 mr-6"/>
+                        <img src={ttLogo} className="h-6 lg:h-8 mr-4"/>
                     </a>
                     <a href="https://www.youtube.com/@turtlemuseumsg8689/featured">
-                        <img src={ytLogo} className="h-6 lg:h-8 mr-6"/>
+                        <img src={ytLogo} className="h-6 lg:h-8 mr-4"/>
                     </a>
                 </div>
                 {/* Third Column */}
-                <div className="flex flex-col justify-start items-start lg:justify-end lg:items-end">
+                <div className="flex flex-col sm:justify-start sm:items-start justify-end items-end">
                     <span>&copy; 2024 Live Turtle Museum (Singapore).</span>
                     <span>All Rights Reserved.</span>
                 </div>
