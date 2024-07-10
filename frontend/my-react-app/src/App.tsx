@@ -16,17 +16,26 @@ function App() {
   const isPreviewingInBuilder = useIsPreviewing();
   const [notFound, setNotFound] = useState(false);
   const [content, setContent] = useState(null);
+  const [modelName, setModelName] = useState("page");
 
   // get the page content from Builder
   useEffect(() => {
     async function fetchContent() {
-      const content = await builder
+      const pageContent = await builder
         .get("page", {
           url: window.location.pathname
         })
         .promise();
 
+        const testContent = await builder
+        .get("test", {
+          url: window.location.pathname
+        })
+        .promise();
+      
+      const content = pageContent || testContent;
       setContent(content);
+      setModelName(content.meta.kind);
       setNotFound(!content);
 
       // if the page title is found, 
@@ -46,7 +55,7 @@ function App() {
   
   return (
     <Routes>
-      <Route path="/*" element={content && <BuilderComponent model="page" content={content} />}/>
+      <Route path="/*" element={content && <BuilderComponent model={modelName} content={content} />}/>
     </Routes>
   );
 }
