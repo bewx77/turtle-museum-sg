@@ -8,6 +8,7 @@ import Notice from "./components/Notice";
 import HeaderBanner from "./components/HeaderBanner";
 import TurtleCard from "./components/TurtleCard";
 import TurtleInfo from "./components/TurtleInfo";
+import TurtleDetails from "./components/TurtleDetails";
 
 Builder.registerComponent(Counter, {
   name: "Counter",
@@ -95,9 +96,94 @@ Builder.registerComponent(TurtleCard, {
       type: "file",
       allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
     },
+    {
+      name: "id",
+      type: "number",
+      defaultValue: 0,
+    },
   ],
 });
 
 Builder.registerComponent(TurtleInfo, {
   name: "Turtle Info",
+  inputs: [
+    {
+      name: "turtleHabitat",
+      type: "text",
+      defaultValue: "turtleHabitat",
+    },
+    {
+      name: "turtleDescription",
+      type: "text",
+      defaultValue: "turtleDescription",
+    },
+    {
+      name: "turtleName",
+      type: "text",
+      defaultValue: "turtleName",
+    },
+  ],
 });
+
+Builder.registerComponent(TurtleDetails, {
+  name: "Turtle Details",
+  inputs: [
+    {
+      name: "turtleWeight",
+      type: "text",
+      defaultValue: "weight",
+    },
+    {
+      name: "turtleName",
+      type: "text",
+      defaultValue: "turtleName",
+    },
+    {
+      name: "turtleDiet",
+      type: "text",
+      defaultValue: "turtleDiet",
+    },
+    {
+      name: "image",
+      type: "file",
+      allowedFileTypes: ["jpeg", "jpg", "png", "svg"],
+    },
+    {
+      name: "turtleDescription",
+      type: "text",
+      defaultValue: "turtleDescription",
+    },
+    {
+      name: "turtleSize",
+      type: "text",
+      defaultValue: "turtleSize",
+    },
+    {
+      name: "turtleScientificName",
+      type: "text",
+      defaultValue: "turtleScientificName",
+    },
+    {
+      name: "turtleLifespan",
+      type: "text",
+      defaultValue: "turtleLifespan",
+    },
+    {
+      name: "turtleHabit",
+      type: "text",
+      defaultValue: "turtleHabit",
+    },
+    {
+      name: "turtleHabitat",
+      type: "text",
+      defaultValue: "turtleHabitat",
+    },
+    {
+      name: "turtleInTheWild",
+      type: "text",
+      defaultValue: "turtleInTheWild",
+    },
+  ],
+});
+
+

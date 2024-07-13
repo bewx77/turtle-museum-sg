@@ -16,6 +16,9 @@ export default function BuilderPage() {
       const content = await builder
         .get("page", {
           url: window.location.pathname,
+          // options: {
+          //   noTargeting:true,
+          // }
         })
         .promise();
 

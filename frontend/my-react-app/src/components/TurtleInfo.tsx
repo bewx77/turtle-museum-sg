@@ -32,14 +32,15 @@ const TurtleInfo: React.FC = () => {
 
         if (!handle) {
           setError("Missing turtle handle.");
-          console.log(handle);
+          console.log("loggin the handle" + handle);
           setLoading(false);
           return;
         }
 
         const param = encodeURIComponent(handle);
+        console.log( param);
 
-        const response = await axios.get(
+        const response = await builder.get(
           `https://cdn.builder.io/api/v2/content/turtle?apiKey=${import.meta.env
             .VITE_PUBLIC_BUILDER_KEY!}&query.data.turtleName=${param}`
         );
@@ -73,6 +74,7 @@ const TurtleInfo: React.FC = () => {
 
   return (
     <div>
+      
       {turtleDetails && (
         <>
           <h1>{turtleDetails.turtleName}</h1>
@@ -81,8 +83,9 @@ const TurtleInfo: React.FC = () => {
 
           {/* Render the Builder drag-and-drop content */}
           <BuilderComponent
-            name="turtle-data"
-            options={{ includeRefs: true }}
+            data={{
+              ...turtleDetails,
+            }}
           />
         </>
       )}
