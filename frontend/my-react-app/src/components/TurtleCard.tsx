@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, BrowserRouter, Route, Routes } from 'react-router-dom';
-import TurtleInfo from "./TurtleInfo";
+// import { Link, BrowserRouter, Route, Routes } from 'react-router-dom';
+// import TurtleInfo from "./TurtleInfo";
 
 
 interface TurtleCardProps {
@@ -11,9 +11,14 @@ interface TurtleCardProps {
 }
 
 const TurtleCard: React.FC<TurtleCardProps> = (props) => {
+  const handleClick = () => {
+    localStorage.setItem('cardTitle', props.title);
+    console.log("Title set in local storage");
+  };
+
   return (
 
-      <a href={`/turtle-details/${props.title}`} > 
+      <a href={`/hello`} onClick={handleClick}> 
         <div className="w-64 h-64 bg-white shadow-md ">
           {/* <Routes>
             <Route path="/turtle-details/:title" Component={TurtleInfo}></Route>

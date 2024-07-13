@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { BuilderComponent, BuilderContent, builder } from "@builder.io/react";
-import axios from "axios";
+// import { useEffect, useState } from "react";
+// import { BuilderComponent, BuilderContent, builder } from "@builder.io/react";
+// import axios from "axios";
 
 export interface TurtleDetail {
   turtleWeight: string;
@@ -27,7 +27,7 @@ const TurtleDetails: React.FC<TurtleDetail> = (props) => {
         <div> 
           <div className="w-64 h-64 bg-white shadow-md ">
             {/* <p>params: {queryParams}</p> */}
-          <h1>naem:{props.turtleName}</h1>
+          <h1>{props.turtleName}</h1>
           <h2>Habitat: {props.turtleHabitat}</h2>
           <h3>Published: {props.turtleDescription}</h3>
           </div>

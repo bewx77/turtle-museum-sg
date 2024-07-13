@@ -1,7 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BuilderComponent, BuilderContent, builder } from "@builder.io/react";
-import axios from "axios";
+import { builder } from "@builder.io/react";
+import PigNoseFlyingTurtle from "./PigNoseFlyingTurtle";
+import PigNoseTurtle from "./PigNoseTurtle";
+// import axios from "axios";
 
 export interface TurtleDetail {
   turtleWeight: string;
@@ -25,29 +27,32 @@ const TurtleInfo: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+
     const fetchTurtle = async () => {
       try {
-        const queryParams = new URLSearchParams(window.location.search);
-        const handle = queryParams.get("name");
+        const title = localStorage.getItem('cardTitle');
+        // const queryParams = new URLSearchParams(window.location.search);
+        // const handle = queryParams.get("name");
 
-        if (!handle) {
-          setError("Missing turtle handle.");
-          console.log("loggin the handle" + handle);
-          setLoading(false);
-          return;
-        }
+        // if (!handle) {
+        //   setError("Missing turtle handle.");
+        //   console.log("loggin the handle" + handle);
+        //   setLoading(false);
+        //   return;
+        // }
 
-        const param = encodeURIComponent(handle);
-        console.log( param);
-
-        const response = await builder.get(
-          `https://cdn.builder.io/api/v2/content/turtle?apiKey=${import.meta.env
-            .VITE_PUBLIC_BUILDER_KEY!}&query.data.turtleName=${param}`
-        );
+        // const param = encodeURIComponent(handle);
+        // console.log( param);
+        console.log(title);
+        const turtle = await builder
+        .get("turtle", {
+          query: { 'data.turtleName': `${title}` }
+        })
+        .promise();
         console.log("here's the response");
-        console.log(response);
-        const turtleData = response.data?.results[0]?.data;
-
+        console.log(turtle);
+        const turtleData = turtle.data;
+        console.log(turtleData);
         if (!turtleData) {
           setError("Turtle not found.");
         } else {
@@ -77,16 +82,8 @@ const TurtleInfo: React.FC = () => {
       
       {turtleDetails && (
         <>
-          <h1>{turtleDetails.turtleName}</h1>
-          <h2>By: {turtleDetails.turtleHabitat}</h2>
-          <h3>Published: {turtleDetails.turtleDescription}</h3>
-
-          {/* Render the Builder drag-and-drop content */}
-          <BuilderComponent
-            data={{
-              ...turtleDetails,
-            }}
-          />
+          <PigNoseFlyingTurtle imageUrl={turtleDetails.image} title={turtleDetails.turtleName} subtitle={turtleDetails.turtleScientificName} ></PigNoseFlyingTurtle>
+          <PigNoseTurtle turtleDetails={turtleDetails}></PigNoseTurtle>
         </>
       )}
     </div>

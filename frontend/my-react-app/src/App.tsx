@@ -28,10 +28,12 @@ function App() {
         .promise();
 
         const testContent = await builder
-        .get("turtle-routing", {
+        .get("test", {
           url: window.location.pathname,
         })
         .promise();
+
+      console.log(testContent)
       
       const content = pageContent || testContent;
       setContent(content);
