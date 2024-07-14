@@ -82,8 +82,12 @@ const TurtleInfo: React.FC = () => {
       
       {turtleDetails && (
         <>
+          <div>
           <PigNoseFlyingTurtle imageUrl={turtleDetails.image} title={turtleDetails.turtleName} subtitle={turtleDetails.turtleScientificName} ></PigNoseFlyingTurtle>
+          </div>
+          <div>
           <PigNoseTurtle turtleDetails={turtleDetails}></PigNoseTurtle>
+          </div>
         </>
       )}
     </div>

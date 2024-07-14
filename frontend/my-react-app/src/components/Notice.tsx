@@ -7,7 +7,20 @@ interface NoticeProps {
     content: string;
 }
 
+const formatDate = (date: string) : string => {
+    const d = new Date(date);
+    const formatter = new Intl.DateTimeFormat("en-SG", {
+        timeStyle: "short",
+        dateStyle:"short",
+    });
+    
+    return formatter.format(d);
+}
+
 const Notice : React.FC<NoticeProps> = (props) => {
+
+    const formattedDate = formatDate(props.date);
+
     return(
         <div className="flex flex-row p-4 bg-white border border-1 border-emerald-400">
             {/* Left Column - Icon */}
@@ -16,9 +29,9 @@ const Notice : React.FC<NoticeProps> = (props) => {
             </div>
             {/* Right Column */}
             <div className="flex flex-col justify-start items-start">
-                <span className="font-semibold text-2xl">{props.title}</span>
-                <span className="font-light text-lg text-grey">{props.date}</span>
-                <span className="text-xl">{props.content}</span>
+                <span className="font-semibold text-base lg:text-lg">{props.title}</span>
+                <span className="font-light text-xs text-grey-100">{formattedDate}</span>
+                <span className="text-xs lg:text-base pt-2">{props.content}</span>
             </div>
         </div>
     )

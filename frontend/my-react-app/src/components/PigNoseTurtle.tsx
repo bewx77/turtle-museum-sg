@@ -3,11 +3,12 @@ import InfoCard from './InfoCard';
 import { InfoCardProps } from './InfoCard';
 import { TurtleDetail } from './TurtleDetails';
 
+
 const infoCardData: InfoCardProps[] = [
-  { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/3190deef4f1023b7d712d3592339a0f84af8cc1446dc1e66d8970a5dbd605c30?apiKey=81930ef26dff4457b3b169a34fed7ac9&", title: "Size", description: "up to 70cm" },
-  { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/3190deef4f1023b7d712d3592339a0f84af8cc1446dc1e66d8970a5dbd605c30?apiKey=81930ef26dff4457b3b169a34fed7ac9&", title: "Diet", description: "Fish, river grass and other small aquatic animals" },
-  { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/3190deef4f1023b7d712d3592339a0f84af8cc1446dc1e66d8970a5dbd605c30?apiKey=81930ef26dff4457b3b169a34fed7ac9&", title: "Size", description: "up to 70cm" },
-  { iconSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/3190deef4f1023b7d712d3592339a0f84af8cc1446dc1e66d8970a5dbd605c30?apiKey=81930ef26dff4457b3b169a34fed7ac9&", title: "Size", description: "up to 70cm" }
+  { title: "Size", description: "up to 70cm" },
+  { title: "Diet", description: "Fish, river grass and other small aquatic animals" },
+  { title: "Weight", description: "Up to 30kg" },
+  { title: "Lifespan", description: "25-30 years" }
 ];
 
 interface PigNoseTurtleProps {
@@ -15,28 +16,28 @@ interface PigNoseTurtleProps {
 }
 
 const PigNoseTurtle: React.FC<PigNoseTurtleProps> = ({turtleDetails}) => {
-    
+  
   return (
-    <article className="flex flex-col px-5 max-w-[918px]">
-      <p className="self-center text-xl font-light text-black max-md:max-w-full">
+    <article className="flex flex-col mt-8 px-0 max-w-[918px] font-serif">
+      <p className="self-center px-5 text-xl font-light text-gray-600 max-md:max-w-full">
         {turtleDetails.turtleDescription}
       </p>
       <img 
         loading="lazy" 
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/06a736517404602095633479315b61d90d6a6c6b491dcdc74fe2a2fcd5f6ba59?apiKey=81930ef26dff4457b3b169a34fed7ac9&" 
+        src={turtleDetails.image}
         alt="Pig nose turtle in its natural habitat" 
-        className="self-start mt-14 w-full aspect-[1.33] max-md:mt-10 max-md:max-w-full" 
+        className="self-start mt-8 w-full aspect-[1.33] max-md:mt-10 max-md:max-w-full" 
       />
-      <h2 className="mt-12 w-full text-4xl text-black max-md:mt-10 max-md:max-w-full">
+      <h2 className="mt-8 w-full text-4xl text-black px-5 max-md:mt-10 max-md:max-w-full">
         Habitat
       </h2>
-      <p className="mt-10 w-full text-xl font-light text-black max-md:max-w-full">
+      <p className="mt-5 w-full text-xl font-light px-5 text-gray-600 max-md:max-w-full">
         {turtleDetails.turtleHabitat}
       </p>
-      <h2 className="mt-12 w-full text-4xl text-black max-md:mt-10 max-md:max-w-full">
+      <h2 className="mt-8 w-full text-4xl px-5 text-black max-md:mt-10 max-md:max-w-full">
         What I do when I'm not in the museum
       </h2>
-      <p className="mt-8 w-full text-xl font-light text-black max-md:max-w-full">
+      <p className="mt-5 w-full text-xl px-5 font-light text-gray-600 max-md:max-w-full">
         {turtleDetails.turtleInTheWild}
       </p>
       <section className="mt-14 w-full max-md:mt-10 max-md:max-w-full">

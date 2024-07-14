@@ -11,13 +11,14 @@ const Card: React.FC<CardProps> = (props) => {
 
     return (
         <div 
-        className={`flex flex-col justify-between p-4 m-4 ${isHovered? `hover:bg-emerald-400 text-white cursor-pointer` : `bg-emerald-100/20 text-black`}`}
+        className={`flex flex-col justify-between w-72 h-56 md:w-64 md:h-64 lg:w-48 lg:h-80 p-4 ${isHovered? `hover:bg-emerald-400 text-white cursor-pointer` : `bg-emerald-100/20 text-black`}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="text-4xl font-semibold p-2">{props.header}</div>
-            <div className="text-lg font-light pl-4 pr-4 pb-4">{props.description}</div>
-            <Button type={`${isHovered ? `card-active` : `card-inactive`}`} text="Learn More"></Button>
+            <div className="text-lg lg:text-xl font-semibold pb-4">{props.header}</div>
+            <hr className={`border-t w-1/4 pb-4 ${isHovered? `hover:border-white` : `border-black`}`}></hr>
+            <div className="text-sm font-light pb-4">{props.description}</div>
+                <Button type={`${isHovered ? `card-active` : `card-inactive`}`} text="Learn More"></Button>
         </div>
     );
 };

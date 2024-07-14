@@ -56,7 +56,7 @@ Builder.registerComponent(Notice, {
     {
       name: "date",
       type: "date",
-      // defaultValue: "Today",
+      defaultValue: new Date().toString(),
     },
     { name: "content", type: "text", defaultValue: "Content" },
   ],
